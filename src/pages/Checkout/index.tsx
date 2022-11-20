@@ -1,4 +1,3 @@
-import { ContentHeader } from './ContentHeader'
 import {
   MapPinLine,
   CurrencyDollar,
@@ -6,6 +5,11 @@ import {
   Bank,
   Money,
 } from 'phosphor-react'
+import { CoffeeContext } from '../../contexts/CoffeContext'
+import { useContext } from 'react'
+
+import { ContentHeader } from './ContentHeader'
+import { CoffeeCard } from './CoffeeCard'
 
 import {
   CheckoutContainer,
@@ -15,12 +19,14 @@ import {
   InputContainer,
   PaymentMethodsContainer,
 } from './styles'
-import { CoffeeCard } from './CoffeeCard'
 
 export function Checkout() {
+  const { coffeeCartList } = useContext(CoffeeContext)
+
   return (
     <main>
       <CheckoutContainer>
+        {JSON.stringify(coffeeCartList, null, false)}
         <div>
           <h1>Complete seu pedido</h1>
           <CheckoutContent>

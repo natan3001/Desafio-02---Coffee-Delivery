@@ -67,7 +67,7 @@ export const PriceContainer = styled.div`
   }
 `
 
-export const FormAddCartContainer = styled.form`
+export const AddCartContainer = styled.div`
   display: flex;
   gap: 0.5rem;
 
