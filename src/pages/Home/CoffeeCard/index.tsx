@@ -10,7 +10,7 @@ import {
   TagListContainer,
 } from './styles'
 
-export function Card() {
+export function CoffeeCard() {
   return (
     <CardContainer>
       <img src={MochaccinoImage} alt="" />
