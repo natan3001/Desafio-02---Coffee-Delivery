@@ -58,6 +58,10 @@ export const PaymentMethodsContainer = styled.div`
     svg{
       color: ${props => props.theme["purple-500"]};
     }
+
+    :hover{
+      background: ${props => props.theme["base-250"]};
+    }
   }
 
   input{
