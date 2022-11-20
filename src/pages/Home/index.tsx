@@ -16,7 +16,7 @@ export function Home() {
         <h2>Nossos cafés</h2>
         <CoffeeListContainer>
           {availableCoffeeList.map((coffee) => {
-            return <CoffeeCard key={coffee.id} />
+            return <CoffeeCard key={coffee.id} {...coffee} />
           })}
         </CoffeeListContainer>
       </MainContainer>

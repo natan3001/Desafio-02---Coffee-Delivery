@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useState } from 'react'
 
 // Coffee
-interface CoffeProps {
+export interface CoffeProps {
   id: string
   title: string
   description: string

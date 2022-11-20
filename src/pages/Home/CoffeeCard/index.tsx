@@ -1,6 +1,5 @@
 import { ShoppingCart, Plus, Minus } from 'phosphor-react'
-
-import MochaccinoImage from '../../../assets/coffees/Mochaccino.png'
+import { CoffeProps } from '../../../contexts/CoffeContext'
 
 import {
   CardContainer,
@@ -10,24 +9,44 @@ import {
   TagListContainer,
 } from './styles'
 
-export function CoffeeCard() {
+export function CoffeeCard({
+  id,
+  description,
+  img,
+  price,
+  tagList,
+  title,
+}: CoffeProps) {
   return (
     <CardContainer>
-      <img src={MochaccinoImage} alt="" />
+      <img src={img} alt="" />
+
       <TagListContainer>
-        <span>Tradicional</span>
+        {tagList.map((tag, index) => (
+          <span key={`${id}-${index}`}>{tag}</span>
+        ))}
       </TagListContainer>
-      <h3>Expresso Tradicional</h3>
-      <p>O tradicional café feito com água quenete e grãos moídos</p>
+
+      <h3>{title}</h3>
+      <p>{description}</p>
+
       <FooterContainer>
         <PriceContainer>
-          R$<span> 9,90</span>
+          R${' '}
+          <span>
+            {price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+          </span>
         </PriceContainer>
+
         <FormAddCartContainer>
           <span>
-            <Minus size={16} />
+            <button>
+              <Minus size={16} />
+            </button>
             1
-            <Plus size={16} />
+            <button>
+              <Plus size={16} />
+            </button>
           </span>
           <button>
             <ShoppingCart weight="fill" size={22} />

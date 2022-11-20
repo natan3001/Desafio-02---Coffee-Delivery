@@ -89,9 +89,15 @@ export const FormAddCartContainer = styled.form`
         color: ${(props) => props.theme['purple-700']};
       }
     }
+
+    button {
+      border: 0;
+      background-color: transparent;
+      height: 16px;
+    }
   }
 
-  button {
+  > button {
     display: flex;
     justify-content: center;
     align-items: center;
