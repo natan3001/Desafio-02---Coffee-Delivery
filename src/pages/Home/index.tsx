@@ -1,7 +1,7 @@
-import { Banner } from "./Banner";
-import { Card } from "./Card";
+import { Banner } from './Banner'
+import { Card } from './Card'
 
-import { CoffeeListContainer, MainContainer } from "./styles";
+import { CoffeeListContainer, MainContainer } from './styles'
 
 export function Home() {
   return (

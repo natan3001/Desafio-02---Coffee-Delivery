@@ -1,8 +1,21 @@
-import { ContentHeader } from "./ContentHeader";
-import { MapPinLine, CurrencyDollar, CreditCard, Bank, Money } from 'phosphor-react'
+import { ContentHeader } from './ContentHeader'
+import {
+  MapPinLine,
+  CurrencyDollar,
+  CreditCard,
+  Bank,
+  Money,
+} from 'phosphor-react'
 
-import { CheckoutContainer, CheckoutContent, CheckoutDetails, DeliveryFormContainer, InputContainer, PaymentMethodsContainer } from "./styles";
-import { CoffeeCard } from "./CoffeeCard";
+import {
+  CheckoutContainer,
+  CheckoutContent,
+  CheckoutDetails,
+  DeliveryFormContainer,
+  InputContainer,
+  PaymentMethodsContainer,
+} from './styles'
+import { CoffeeCard } from './CoffeeCard'
 
 export function Checkout() {
   return (
@@ -12,35 +25,51 @@ export function Checkout() {
           <h1>Complete seu pedido</h1>
           <CheckoutContent>
             <ContentHeader
-              title='Endereço de Entrega'
-              subtitle='Informe o endereço onde deseja receber seu pedido'
+              title="Endereço de Entrega"
+              subtitle="Informe o endereço onde deseja receber seu pedido"
               icon={<MapPinLine size={22} />}
-              color='yellow'
+              color="yellow"
             />
             <DeliveryFormContainer>
               <div>
-                <InputContainer type="text" placeholder="CEP" width='medium' />
+                <InputContainer type="text" placeholder="CEP" width="medium" />
               </div>
               <div>
-                <InputContainer type="text" placeholder="Rua" width='large' />
+                <InputContainer type="text" placeholder="Rua" width="large" />
               </div>
               <div>
-                <InputContainer type="text" placeholder="Número" width='medium' />
-                <InputContainer type="text" placeholder="Complemento" width='large' />
+                <InputContainer
+                  type="text"
+                  placeholder="Número"
+                  width="medium"
+                />
+                <InputContainer
+                  type="text"
+                  placeholder="Complemento"
+                  width="large"
+                />
               </div>
               <div>
-                <InputContainer type="text" placeholder="Bairro" width='medium' />
-                <InputContainer type="text" placeholder="Cidade" width='large' />
-                <InputContainer type="text" placeholder="UF" width='small' />
+                <InputContainer
+                  type="text"
+                  placeholder="Bairro"
+                  width="medium"
+                />
+                <InputContainer
+                  type="text"
+                  placeholder="Cidade"
+                  width="large"
+                />
+                <InputContainer type="text" placeholder="UF" width="small" />
               </div>
             </DeliveryFormContainer>
           </CheckoutContent>
           <CheckoutContent>
             <ContentHeader
-              title='Pagamento'
-              subtitle='O pagamento é feito na entrega. Escolha a forma que deseja pagar'
+              title="Pagamento"
+              subtitle="O pagamento é feito na entrega. Escolha a forma que deseja pagar"
               icon={<CurrencyDollar size={22} />}
-              color='purple'
+              color="purple"
             />
             <PaymentMethodsContainer>
               <label htmlFor="creditCardMethod1">

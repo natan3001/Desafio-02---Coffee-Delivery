@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   padding: 2rem 0;
 
-  nav{
+  nav {
     display: flex;
     gap: 0.75rem;
     font-size: 1.125rem;
@@ -24,17 +24,17 @@ const BaseButton = styled.button`
 `
 
 export const LocationButton = styled(BaseButton)`
-  background-color: ${(props) => props.theme["purple-200"]};
-  color: ${(props) => props.theme["purple-700"]};
+  background-color: ${(props) => props.theme['purple-200']};
+  color: ${(props) => props.theme['purple-700']};
 
-  svg{
-    color: ${(props) => props.theme["purple-500"]};
+  svg {
+    color: ${(props) => props.theme['purple-500']};
   }
 `
 
 export const CartButton = styled(BaseButton)`
-  background-color: ${(props) => props.theme["yelllow-200"]};
-  color: ${(props) => props.theme["yelllow-700"]};
+  background-color: ${(props) => props.theme['yelllow-200']};
+  color: ${(props) => props.theme['yelllow-700']};
 
   position: relative;
   cursor: pointer;
@@ -54,5 +54,5 @@ export const CartCountSpan = styled.span`
   align-items: center;
 
   color: white;
-  background-color: ${(props) => props.theme["yelllow-700"]};
-` 
+  background-color: ${(props) => props.theme['yelllow-700']};
+`

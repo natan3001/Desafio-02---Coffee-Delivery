@@ -1,12 +1,12 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const MainContainer = styled.main`
   margin-bottom: 10rem;
-  
-  h2{
+
+  h2 {
     font-size: 2rem;
     font-family: 'Baloo 2', sans-serif;
-    color: ${props => props.theme["base-500"]};
+    color: ${(props) => props.theme['base-500']};
     margin-bottom: 3.375rem;
   }
 `
@@ -16,4 +16,3 @@ export const CoffeeListContainer = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 2.5rem 2rem;
 `
-

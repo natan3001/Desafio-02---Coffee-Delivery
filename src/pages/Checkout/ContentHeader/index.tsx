@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 
-import { ContentHeaderContainer, ContentIconsColors } from "./styles"
+import { ContentHeaderContainer, ContentIconsColors } from './styles'
 
 interface ContentHeaderProps extends ContentIconsColors {
   title: string
@@ -8,15 +8,18 @@ interface ContentHeaderProps extends ContentIconsColors {
   icon: ReactNode
 }
 
-export function ContentHeader({ title, subtitle, icon, color }: ContentHeaderProps) {
+export function ContentHeader({
+  title,
+  subtitle,
+  icon,
+  color,
+}: ContentHeaderProps) {
   return (
     <ContentHeaderContainer color={color}>
       {icon}
       <div>
         {title}
-        <span>
-          {subtitle}
-        </span>
+        <span>{subtitle}</span>
       </div>
     </ContentHeaderContainer>
   )

@@ -1,5 +1,5 @@
-import { Clock, CurrencyDollar, MapPin } from "phosphor-react";
-import { OrderDetails, OrderDetailsItem, SuccessContainer } from "./styles";
+import { Clock, CurrencyDollar, MapPin } from 'phosphor-react'
+import { OrderDetails, OrderDetailsItem, SuccessContainer } from './styles'
 
 import CoffeeDeliverySuccess from './../../assets/coffee-delivery-success.png'
 
@@ -30,7 +30,9 @@ export function Success() {
             </span>
             <div>
               <span>Previsão de entrega</span>
-              <span><strong>20 min - 30 min </strong></span>
+              <span>
+                <strong>20 min - 30 min </strong>
+              </span>
             </div>
           </OrderDetailsItem>
           <OrderDetailsItem color="yellow-dark">
@@ -39,7 +41,9 @@ export function Success() {
             </span>
             <div>
               <span>Pagamento na entrega</span>
-              <span><strong>Cartão de Crédito</strong></span>
+              <span>
+                <strong>Cartão de Crédito</strong>
+              </span>
             </div>
           </OrderDetailsItem>
         </ul>

@@ -8,28 +8,31 @@ export function Banner() {
     <BannerContainer>
       <ContentContainer>
         <h1>Encontre o café perfeito para qualquer hora do dia</h1>
-        <span>Com o Coffee Delivery você recebe seu café onde estiver, a qualquer hora</span>
+        <span>
+          Com o Coffee Delivery você recebe seu café onde estiver, a qualquer
+          hora
+        </span>
         <ul>
           <li>
-            <SpanContainer spanColor='dark-yellow'>
+            <SpanContainer spanColor="dark-yellow">
               <ShoppingCart size={16} weight="fill" />
             </SpanContainer>
             Compra simples e segura
           </li>
           <li>
-            <SpanContainer spanColor='base'>
+            <SpanContainer spanColor="base">
               <Package size={16} weight="fill" />
             </SpanContainer>
             Embalagem mantém o café intacto
           </li>
           <li>
-            <SpanContainer spanColor='yellow'>
+            <SpanContainer spanColor="yellow">
               <Timer size={16} weight="fill" />
             </SpanContainer>
             Entrega rápida e rastreada
           </li>
           <li>
-            <SpanContainer spanColor='purple'>
+            <SpanContainer spanColor="purple">
               <Coffee size={16} weight="fill" />
             </SpanContainer>
             O café chega fresquinho até você

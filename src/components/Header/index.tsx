@@ -1,6 +1,11 @@
 import { MapPin, ShoppingCart } from 'phosphor-react'
 
-import { CartButton, CartCountSpan, HeaderContainer, LocationButton } from './styles'
+import {
+  CartButton,
+  CartCountSpan,
+  HeaderContainer,
+  LocationButton,
+} from './styles'
 
 import logoCoffeeDelivery from './../../assets/coffee-delivery-logo.svg'
 import { NavLink } from 'react-router-dom'

@@ -2,7 +2,13 @@ import { ShoppingCart, Plus, Minus } from 'phosphor-react'
 
 import MochaccinoImage from '../../../assets/coffees/Mochaccino.png'
 
-import { CardContainer, FooterContainer, FormAddCartContainer, PriceContainer, TagListContainer } from "./styles";
+import {
+  CardContainer,
+  FooterContainer,
+  FormAddCartContainer,
+  PriceContainer,
+  TagListContainer,
+} from './styles'
 
 export function Card() {
   return (
@@ -23,7 +29,9 @@ export function Card() {
             1
             <Plus size={16} />
           </span>
-          <button><ShoppingCart weight='fill' size={22} /></button>
+          <button>
+            <ShoppingCart weight="fill" size={22} />
+          </button>
         </FormAddCartContainer>
       </FooterContainer>
     </CardContainer>
