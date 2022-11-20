@@ -2,7 +2,7 @@ import { ContentHeader } from "./ContentHeader";
 import { MapPinLine, CurrencyDollar, CreditCard, Bank, Money } from 'phosphor-react'
 
 import { CheckoutContainer, CheckoutContent, DeliveryFormContainer, InputContainer, PaymentMethodsContainer } from "./styles";
-
+import { CoffeeCard } from "./CoffeeCard";
 
 export function Checkout() {
   return (
@@ -82,7 +82,9 @@ export function Checkout() {
         <div>
           <h2>Cafés Selecionados</h2>
           <CheckoutContent>
-
+            <CoffeeCard />
+            <CoffeeCard />
+            <CoffeeCard />
           </CheckoutContent>
         </div>
       </CheckoutContainer>
