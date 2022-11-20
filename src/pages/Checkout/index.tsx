@@ -1,7 +1,7 @@
 import { ContentHeader } from "./ContentHeader";
 import { MapPinLine, CurrencyDollar, CreditCard, Bank, Money } from 'phosphor-react'
 
-import { CheckoutContainer, CheckoutContent, DeliveryFormContainer, InputContainer, PaymentMethodsContainer } from "./styles";
+import { CheckoutContainer, CheckoutContent, CheckoutDetails, DeliveryFormContainer, InputContainer, PaymentMethodsContainer } from "./styles";
 import { CoffeeCard } from "./CoffeeCard";
 
 export function Checkout() {
@@ -85,6 +85,21 @@ export function Checkout() {
             <CoffeeCard />
             <CoffeeCard />
             <CoffeeCard />
+            <CheckoutDetails>
+              <div>
+                <span>Total de itens</span>
+                <span>R$ 29,70</span>
+              </div>
+              <div>
+                <span>Entrega</span>
+                <span>R$ 3,50</span>
+              </div>
+              <div>
+                <span>Total</span>
+                <span>R$ 33,20</span>
+              </div>
+              <button>Confirmar Pedido</button>
+            </CheckoutDetails>
           </CheckoutContent>
         </div>
       </CheckoutContainer>

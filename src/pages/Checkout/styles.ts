@@ -71,6 +71,43 @@ export const PaymentMethodsContainer = styled.div`
   }
 `
 
+export const CheckoutDetails = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  div{
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    font-size: 0.875rem;
+
+    color: ${props => props.theme["base-400"]};
+  }
+
+  div:nth-child(3){
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+
+    color: ${props => props.theme["base-500"]};
+  }
+
+  button{
+    text-transform: uppercase;
+    padding: 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    border-radius: 6px;
+    border: 0;
+    font-weight: bold;
+    cursor: pointer;
+
+    color: ${props => props.theme["white"]};
+    background: ${props => props.theme["yelllow-500"]};
+  }
+`
+
 type InputSizeType = 'small' | 'medium' | 'large'
 
 interface InputContainer {
