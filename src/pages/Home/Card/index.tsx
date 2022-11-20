@@ -19,9 +19,9 @@ export function Card() {
         </PriceContainer>
         <FormAddCartContainer>
           <span>
-            <Minus size={14} />
+            <Minus size={16} />
             1
-            <Plus size={14} />
+            <Plus size={16} />
           </span>
           <button><ShoppingCart weight='fill' size={22} /></button>
         </FormAddCartContainer>
