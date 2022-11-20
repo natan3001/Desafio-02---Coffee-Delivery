@@ -18,6 +18,7 @@ export interface CoffeeInCartProps extends CoffeeProps {
 interface CoffeContextType {
   availableCoffeeList: CoffeeProps[]
   coffeeCartList: CoffeeInCartProps[]
+  totalItemsInCart: number
   AddCoffeeInTheCart: (id: string, quantity: number) => void
 }
 
@@ -155,6 +156,8 @@ export function CoffeContextProvider({ children }: CoffeContextProviderProps) {
 
   const [coffeeCartList, setCoffeeCartList] = useState<CoffeeInCartProps[]>([])
 
+  const totalItemsInCart = coffeeCartList.length
+
   function AddCoffeeInTheCart(id: string, quantity: number) {
     const findIfExistsInCart = coffeeCartList.find((coffee) => coffee.id === id)
 
@@ -183,7 +186,12 @@ export function CoffeContextProvider({ children }: CoffeContextProviderProps) {
 
   return (
     <CoffeeContext.Provider
-      value={{ availableCoffeeList, coffeeCartList, AddCoffeeInTheCart }}
+      value={{
+        availableCoffeeList,
+        coffeeCartList,
+        AddCoffeeInTheCart,
+        totalItemsInCart,
+      }}
     >
       {children}
     </CoffeeContext.Provider>

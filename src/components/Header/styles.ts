@@ -38,6 +38,10 @@ export const CartButton = styled(BaseButton)`
 
   position: relative;
   cursor: pointer;
+
+  :disabled {
+    cursor: not-allowed;
+  }
 `
 
 export const CartCountSpan = styled.span`

@@ -26,7 +26,6 @@ export function Checkout() {
   return (
     <main>
       <CheckoutContainer>
-        {JSON.stringify(coffeeCartList, null, false)}
         <div>
           <h1>Complete seu pedido</h1>
           <CheckoutContent>
