@@ -20,6 +20,8 @@ interface CoffeContextType {
   coffeeCartList: CoffeeInCartProps[]
   totalItemsInCart: number
   AddCoffeeInTheCart: (id: string, quantity: number) => void
+  UpdateQtdItemInCart: (id: string, quantity: number) => void
+  RemoveItemFromCart: (id: string) => void
 }
 
 interface CoffeContextProviderProps {
@@ -184,13 +186,40 @@ export function CoffeContextProvider({ children }: CoffeContextProviderProps) {
     }
   }
 
+  function UpdateQtdItemInCart(id: string, quantity: number) {
+    const findCoffeeToBeUpdated = coffeeCartList.find(
+      (coffee) => coffee.id === id,
+    )
+
+    if (!findCoffeeToBeUpdated) {
+      return false
+    }
+
+    setCoffeeCartList((state) => {
+      return state.map((coffee) => {
+        if (coffee.id === id) {
+          coffee.quantity = quantity
+        }
+        return coffee
+      })
+    })
+  }
+
+  function RemoveItemFromCart(id: string) {
+    setCoffeeCartList((state) => {
+      return state.filter((coffee) => coffee.id !== id)
+    })
+  }
+
   return (
     <CoffeeContext.Provider
       value={{
         availableCoffeeList,
         coffeeCartList,
-        AddCoffeeInTheCart,
         totalItemsInCart,
+        AddCoffeeInTheCart,
+        UpdateQtdItemInCart,
+        RemoveItemFromCart,
       }}
     >
       {children}

@@ -23,6 +23,13 @@ import {
 export function Checkout() {
   const { coffeeCartList } = useContext(CoffeeContext)
 
+  const totalItemsPrice = coffeeCartList.reduce(
+    (accum, coffee) => accum + coffee.price * coffee.quantity,
+    0,
+  )
+  const deliveryFee = 8.5
+  const totalOrderPrice = totalItemsPrice + deliveryFee
+
   return (
     <main>
       <CheckoutContainer>
@@ -122,15 +129,30 @@ export function Checkout() {
             <CheckoutDetails>
               <div>
                 <span>Total de itens</span>
-                <span>R$ 29,70</span>
+                <span>
+                  R${' '}
+                  {totalItemsPrice.toLocaleString('pt-BR', {
+                    minimumFractionDigits: 2,
+                  })}
+                </span>
               </div>
               <div>
                 <span>Entrega</span>
-                <span>R$ 3,50</span>
+                <span>
+                  R${' '}
+                  {deliveryFee.toLocaleString('pt-BR', {
+                    minimumFractionDigits: 2,
+                  })}
+                </span>
               </div>
               <div>
                 <span>Total</span>
-                <span>R$ 33,20</span>
+                <span>
+                  R${' '}
+                  {totalOrderPrice.toLocaleString('pt-BR', {
+                    minimumFractionDigits: 2,
+                  })}
+                </span>
               </div>
               <button>Confirmar Pedido</button>
             </CheckoutDetails>
