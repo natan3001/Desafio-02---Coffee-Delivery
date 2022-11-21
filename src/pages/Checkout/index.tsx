@@ -116,9 +116,9 @@ export function Checkout() {
         <div>
           <h2>Cafés Selecionados</h2>
           <CheckoutContent>
-            <CoffeeCard />
-            <CoffeeCard />
-            <CoffeeCard />
+            {coffeeCartList.map((coffee) => {
+              return <CoffeeCard key={coffee.id} {...coffee} />
+            })}
             <CheckoutDetails>
               <div>
                 <span>Total de itens</span>

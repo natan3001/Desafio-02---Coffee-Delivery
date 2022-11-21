@@ -4,20 +4,29 @@ import { CardButtons, CardContainer, CardHeader, CardSeparator } from './styles'
 
 import MochaccinoImage from '../../../assets/coffees/Mochaccino.png'
 
-export function CoffeeCard() {
+interface CoffeeCardProps {
+  img: string
+  title: string
+  price: number
+  quantity: number
+}
+
+export function CoffeeCard({ img, title, price, quantity }: CoffeeCardProps) {
   return (
     <>
       <CardContainer>
-        <img src={MochaccinoImage} alt="" />
+        <img src={img} alt="" />
         <div>
           <CardHeader>
-            Expresso Tradicional
-            <span>R$ 9,90</span>
+            {title}
+            <span>
+              R$ {price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+            </span>
           </CardHeader>
           <CardButtons>
             <span>
               <Minus size={14} />
-              1
+              {quantity}
               <Plus size={14} />
             </span>
             <button>
