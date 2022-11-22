@@ -23,20 +23,18 @@ export function CoffeeCard({
   const { UpdateQtdItemInCart, RemoveItemFromCart } = useContext(CoffeeContext)
 
   function addQuantity() {
+    UpdateQtdItemInCart(id, coffeeQuantity + 1)
     setCoffeeQuantity((state) => state + 1)
   }
 
   function removeQuantity() {
+    UpdateQtdItemInCart(id, coffeeQuantity > 1 ? coffeeQuantity - 1 : 1)
     setCoffeeQuantity((state) => (state > 1 ? state - 1 : 1))
   }
 
   function handleRemoveCoffeeFromTheCart() {
     RemoveItemFromCart(id)
   }
-
-  useEffect(() => {
-    UpdateQtdItemInCart(id, coffeeQuantity)
-  }, [UpdateQtdItemInCart, coffeeQuantity, id])
 
   return (
     <>
