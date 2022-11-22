@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import * as zod from 'zod'
 import { FormProvider, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {
   MapPinLine,
   CurrencyDollar,
@@ -213,9 +213,16 @@ export function Checkout() {
           <div>
             <h2>Cafés Selecionados</h2>
             <CheckoutContent>
-              {coffeeCartList.map((coffee) => {
-                return <CoffeeCard key={coffee.id} {...coffee} />
-              })}
+              {coffeeCartList.length > 0 ? (
+                coffeeCartList.map((coffee) => {
+                  return <CoffeeCard key={coffee.id} {...coffee} />
+                })
+              ) : (
+                <span>
+                  Nenhum item adicionado!
+                  <Link to={'/'}>Adicionar itens</Link>
+                </span>
+              )}
               <CheckoutDetails>
                 <div>
                   <span>Total de itens</span>
@@ -244,7 +251,9 @@ export function Checkout() {
                     })}
                   </span>
                 </div>
-                <button type="submit">Confirmar Pedido</button>
+                <button type="submit" disabled={coffeeCartList.length <= 0}>
+                  Confirmar Pedido
+                </button>
               </CheckoutDetails>
             </CheckoutContent>
           </div>

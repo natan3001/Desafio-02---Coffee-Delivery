@@ -19,6 +19,29 @@ export const CheckoutContent = styled.div`
   border-radius: 8px;
 
   background: ${(props) => props.theme['base-150']};
+
+  > span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 1.2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid ${(props) => props.theme['base-250']};
+    margin-bottom: 2rem;
+
+    a {
+      text-decoration: none;
+      font-size: 1rem;
+      color: ${(props) => props.theme['yelllow-700']};
+      font-weight: bold;
+
+      &:active {
+        color: blue;
+        color: ${(props) => props.theme['yelllow-500']};
+      }
+    }
+  }
 `
 
 export const DeliveryFormContainer = styled.div`
@@ -110,6 +133,10 @@ export const CheckoutDetails = styled.div`
 
     color: ${(props) => props.theme.white};
     background: ${(props) => props.theme['yelllow-500']};
+
+    &:disabled {
+      cursor: not-allowed;
+    }
   }
 `
 
