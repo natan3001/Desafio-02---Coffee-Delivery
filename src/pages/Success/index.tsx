@@ -1,9 +1,27 @@
+import { useContext, useEffect } from 'react'
+import { OrderContext } from '../../contexts/OrderContext'
 import { Clock, CurrencyDollar, MapPin } from 'phosphor-react'
+import { useNavigate } from 'react-router-dom'
+
 import { OrderDetails, OrderDetailsItem, SuccessContainer } from './styles'
 
 import CoffeeDeliverySuccess from './../../assets/coffee-delivery-success.png'
 
 export function Success() {
+  const { order } = useContext(OrderContext)
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (!order.items) {
+      return navigate('/')
+    }
+  }, [order, navigate])
+
+  if (!order.items) {
+    return <></>
+  }
+
   return (
     <SuccessContainer>
       <div>
@@ -19,9 +37,14 @@ export function Success() {
             </span>
             <div>
               <span>
-                Entrega em <strong>Rua João Daniel Martinelli, 102</strong>
+                Entrega em{' '}
+                <strong>
+                  Rua {order.address}, {order.number}
+                </strong>
               </span>
-              <span>Farrapos - Porto Alegre, RS</span>
+              <span>
+                {order.district} - {order.city}, {order.state.toUpperCase()}
+              </span>
             </div>
           </OrderDetailsItem>
           <OrderDetailsItem color="yellow">
@@ -42,7 +65,7 @@ export function Success() {
             <div>
               <span>Pagamento na entrega</span>
               <span>
-                <strong>Cartão de Crédito</strong>
+                <strong>{order.paymentMethod}</strong>
               </span>
             </div>
           </OrderDetailsItem>
