@@ -19,6 +19,7 @@ interface CoffeContextType {
   availableCoffeeList: CoffeeProps[]
   coffeeCartList: CoffeeInCartProps[]
   totalItemsInCart: number
+  resetCartList: () => void
   AddCoffeeInTheCart: (id: string, quantity: number) => void
   UpdateQtdItemInCart: (id: string, quantity: number) => void
   RemoveItemFromCart: (id: string) => void
@@ -211,6 +212,10 @@ export function CoffeContextProvider({ children }: CoffeContextProviderProps) {
     })
   }
 
+  function resetCartList() {
+    setCoffeeCartList([])
+  }
+
   return (
     <CoffeeContext.Provider
       value={{
@@ -220,6 +225,7 @@ export function CoffeContextProvider({ children }: CoffeContextProviderProps) {
         AddCoffeeInTheCart,
         UpdateQtdItemInCart,
         RemoveItemFromCart,
+        resetCartList,
       }}
     >
       {children}

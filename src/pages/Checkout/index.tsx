@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import * as zod from 'zod'
 import { FormProvider, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useNavigate } from 'react-router-dom'
 import {
   MapPinLine,
   CurrencyDollar,
@@ -11,6 +12,7 @@ import {
 } from 'phosphor-react'
 
 import { CoffeeContext } from '../../contexts/CoffeContext'
+import { OrderContext } from '../../contexts/OrderContext'
 
 import { ContentHeader } from './ContentHeader'
 import { CoffeeCard } from './CoffeeCard'
@@ -25,20 +27,23 @@ import {
 } from './styles'
 
 const newOrderFormValidationSchema = zod.object({
-  zipCode: zod.string().min(1),
-  address: zod.string().min(1),
+  zipCode: zod.string().min(1, 'Informe o CEP'),
+  address: zod.string().min(1, 'Informe o endereço'),
   address2: zod.string(),
-  number: zod.string().min(1),
-  district: zod.string().min(1),
-  city: zod.string().min(1),
-  state: zod.string().min(2).max(2),
+  number: zod.string().min(1, 'Informe o número'),
+  district: zod.string().min(1, 'Informe o bairro'),
+  city: zod.string().min(1, 'Informe a cidade'),
+  state: zod.string().min(2, 'informe o estado').max(2, 'informe o estado'),
   paymentMethod: zod.string(),
 })
 
 type NewOrderFormData = zod.infer<typeof newOrderFormValidationSchema>
 
 export function Checkout() {
-  const { coffeeCartList } = useContext(CoffeeContext)
+  const { coffeeCartList, resetCartList } = useContext(CoffeeContext)
+  const { createNewOrder } = useContext(OrderContext)
+
+  const navigate = useNavigate()
 
   const totalItemsPrice = coffeeCartList.reduce(
     (accum, coffee) => accum + coffee.price * coffee.quantity,
@@ -61,11 +66,23 @@ export function Checkout() {
     },
   })
 
-  const { handleSubmit, watch, reset, register } = newOrderForm
+  const { handleSubmit, reset, register } = newOrderForm
 
   function handleCreateNewOrder(data: NewOrderFormData) {
-    console.log('asdasd')
-    console.log(data)
+    const newOrder = {
+      ...data,
+      deliveryFee,
+      totalOfItems: totalItemsPrice,
+      total: totalOrderPrice,
+      items: coffeeCartList,
+    }
+
+    createNewOrder(newOrder)
+
+    reset()
+    resetCartList()
+
+    navigate('/success')
   }
 
   return (

@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useState } from 'react'
+import { CoffeeInCartProps } from './CoffeContext'
 
 // Order
 export interface OrderProps {
@@ -14,6 +15,8 @@ export interface OrderProps {
   totalOfItems: number
   deliveryFee: number
   total: number
+
+  items: CoffeeInCartProps[]
 }
 
 // Context
@@ -23,14 +26,21 @@ interface OrderContextProviderProps {
 
 interface OrderContextType {
   order: OrderProps
+  createNewOrder: (data: OrderProps) => void
 }
 
-const OrderContext = createContext({} as OrderContextType)
+export const OrderContext = createContext({} as OrderContextType)
 
 export function OrderContextProvider({ children }: OrderContextProviderProps) {
   const [order, setOrder] = useState({} as OrderProps)
 
+  function createNewOrder(data: OrderProps) {
+    setOrder(data)
+  }
+
   return (
-    <OrderContext.Provider value={{ order }}>{children}</OrderContext.Provider>
+    <OrderContext.Provider value={{ order, createNewOrder }}>
+      {children}
+    </OrderContext.Provider>
   )
 }
