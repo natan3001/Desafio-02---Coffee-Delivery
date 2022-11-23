@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useState } from 'react'
+import { toast } from 'react-toastify'
 import { CoffeeInCartProps } from './CoffeContext'
 
 // Order
@@ -36,6 +37,9 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
 
   function createNewOrder(data: OrderProps) {
     setOrder(data)
+    toast.success('Pedido realizado com sucesso!', {
+      position: toast.POSITION.BOTTOM_RIGHT,
+    })
   }
 
   return (

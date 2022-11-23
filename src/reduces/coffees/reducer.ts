@@ -1,4 +1,5 @@
 import produce from 'immer'
+import { toast } from 'react-toastify'
 
 import { CoffeeInCartProps, CoffeeProps } from '../../contexts/CoffeContext'
 import { ActionTypes } from './actions'
@@ -15,11 +16,19 @@ export function coffeeInCartReducer(state: coffeeState, action: any) {
       )
 
       if (findIfExistsInCart >= 0) {
+        toast.success('Item já está no carrinho! Atualizando a quantidade.', {
+          position: toast.POSITION.BOTTOM_RIGHT,
+        })
+
         return produce(state, (draft) => {
           draft.coffeeCartList[findIfExistsInCart].quantity +=
             action.payload.newCoffee.quantity
         })
       }
+
+      toast.success('Item adicionado com sucesso ao carrinho!', {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      })
 
       return produce(state, (draft) => {
         draft.coffeeCartList.push(action.payload.newCoffee)
@@ -43,6 +52,10 @@ export function coffeeInCartReducer(state: coffeeState, action: any) {
       const newCoffeeCartList = state.coffeeCartList.filter(
         (coffee) => coffee.id !== action.payload.id,
       )
+
+      toast.warning('Item removido com sucesso!', {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      })
 
       return produce(state, (draft) => {
         draft.coffeeCartList = newCoffeeCartList
