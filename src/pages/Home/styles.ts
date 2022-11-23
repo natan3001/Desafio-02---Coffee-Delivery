@@ -15,4 +15,16 @@ export const CoffeeListContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 2.5rem 2rem;
+
+  @media (max-width: 1140px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media (max-width: 870px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
 `

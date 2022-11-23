@@ -174,39 +174,45 @@ export function Checkout() {
                 color="purple"
               />
               <PaymentMethodsContainer>
-                <label htmlFor="creditCardMethod1">
-                  <input
-                    type="radio"
-                    value="Cartão de Crédito"
-                    id="creditCardMethod1"
-                    {...register('paymentMethod')}
-                  />
-                  <span>
-                    <CreditCard size={16} /> Cartão de crédito
-                  </span>
-                </label>
-                <label htmlFor="creditCardMethod2">
-                  <input
-                    type="radio"
-                    value="Cartão de Débito"
-                    id="creditCardMethod2"
-                    {...register('paymentMethod')}
-                  />
-                  <span>
-                    <Bank size={16} /> Cartão de débito
-                  </span>
-                </label>
-                <label htmlFor="creditCardMethod3">
-                  <input
-                    type="radio"
-                    value="Dinheiro"
-                    id="creditCardMethod3"
-                    {...register('paymentMethod')}
-                  />
-                  <span>
-                    <Money size={16} /> Dinheiro
-                  </span>
-                </label>
+                <div>
+                  <label htmlFor="creditCardMethod1">
+                    <input
+                      type="radio"
+                      value="Cartão de Crédito"
+                      id="creditCardMethod1"
+                      {...register('paymentMethod')}
+                    />
+                    <span>
+                      <CreditCard size={16} /> Cartão de crédito
+                    </span>
+                  </label>
+                </div>
+                <div>
+                  <label htmlFor="creditCardMethod2">
+                    <input
+                      type="radio"
+                      value="Cartão de Débito"
+                      id="creditCardMethod2"
+                      {...register('paymentMethod')}
+                    />
+                    <span>
+                      <Bank size={16} /> Cartão de débito
+                    </span>
+                  </label>
+                </div>
+                <div>
+                  <label htmlFor="creditCardMethod3">
+                    <input
+                      type="radio"
+                      value="Dinheiro"
+                      id="creditCardMethod3"
+                      {...register('paymentMethod')}
+                    />
+                    <span>
+                      <Money size={16} /> Dinheiro
+                    </span>
+                  </label>
+                </div>
               </PaymentMethodsContainer>
             </CheckoutContent>
           </div>

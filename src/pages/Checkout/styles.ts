@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const CheckoutContainer = styled.form`
   margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
   display: grid;
   grid-template-columns: 1fr 28rem;
   gap: 2rem;
@@ -10,6 +11,10 @@ export const CheckoutContainer = styled.form`
   h2 {
     font-size: 1.125rem;
     font-family: 'Baloo 2', sans-serif;
+  }
+
+  @media (max-width: 960px) {
+    grid-template-columns: 1fr;
   }
 `
 
@@ -54,6 +59,12 @@ export const DeliveryFormContainer = styled.div`
     display: flex;
     gap: 0.75rem;
   }
+
+  @media (max-width: 560px) {
+    div {
+      flex-direction: column;
+    }
+  }
 `
 
 export const PaymentMethodsContainer = styled.div`
@@ -63,6 +74,7 @@ export const PaymentMethodsContainer = styled.div`
 
   label {
     flex: 1;
+    height: auto;
     cursor: pointer;
   }
 
@@ -96,6 +108,24 @@ export const PaymentMethodsContainer = styled.div`
 
   input:checked + span {
     box-shadow: 0 0 0 1px ${(props) => props.theme['purple-500']};
+  }
+
+  @media (max-width: 1150px) {
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+  }
+
+  @media (max-width: 960px) {
+    flex-direction: row;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
   }
 `
 
@@ -164,4 +194,8 @@ export const InputContainer = styled.input<InputContainerProps>`
     if (props.width === 'medium') return '12.5rem'
     if (props.width === 'small') return '3.75rem'
   }};
+
+  @media (max-width: 560px) {
+    width: 100%;
+  }
 `

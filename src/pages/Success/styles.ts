@@ -36,8 +36,8 @@ export const OrderDetailsItem = styled.li<OrderDetailsIconProps>`
   gap: 0.75rem;
 
   > span {
-    width: 32px;
-    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -96,5 +96,24 @@ export const OrderDetails = styled.div`
       linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
+  }
+
+  @media (max-width: 980px) {
+    grid-template-columns: 1fr;
+    gap: 0;
+
+    img {
+      display: none;
+    }
+
+    ul {
+      max-width: 45rem;
+    }
+  }
+
+  @media (max-width: 980px) {
+    ul {
+      padding: 2rem;
+    }
   }
 `

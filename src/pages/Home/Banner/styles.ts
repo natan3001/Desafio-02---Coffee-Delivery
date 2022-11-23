@@ -6,6 +6,17 @@ export const BannerContainer = styled.div`
   align-items: center;
   padding: 5.75rem 0;
   gap: 3.5rem;
+
+  @media (max-width: 1140px) {
+    img {
+      display: none;
+    }
+  }
+
+  @media (max-width: 560px) {
+    padding: 1.75rem 0 3.75rem;
+    gap: 0;
+  }
 `
 
 const SPAN_COLOR = {
@@ -44,6 +55,15 @@ export const ContentContainer = styled.div`
       display: flex;
       align-items: center;
       gap: 0.75rem;
+    }
+  }
+
+  @media (max-width: 700px) {
+    h1 {
+      font-size: 2rem;
+    }
+    ul {
+      grid-template-columns: 1fr;
     }
   }
 `
