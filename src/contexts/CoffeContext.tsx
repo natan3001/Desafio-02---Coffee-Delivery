@@ -1,4 +1,10 @@
-import { createContext, ReactNode, useReducer, useState } from 'react'
+import {
+  createContext,
+  ReactNode,
+  useEffect,
+  useReducer,
+  useState,
+} from 'react'
 import {
   addNewCoffeeInCartAction,
   removeItemFromCartAction,
@@ -170,9 +176,25 @@ export function CoffeContextProvider({ children }: CoffeContextProviderProps) {
       coffeeCartList: [],
     },
     () => {
-      return { coffeeCartList: [] }
+      const storedStateAsJSON = localStorage.getItem(
+        '@coffee-delivery:coffe-state-1.0.0',
+      )
+
+      if (storedStateAsJSON) {
+        return JSON.parse(storedStateAsJSON)
+      }
+
+      return {
+        coffeeCartList: [],
+      }
     },
   )
+
+  useEffect(() => {
+    const stateJSON = JSON.stringify(coffeeState)
+
+    localStorage.setItem('@coffee-delivery:coffe-state-1.0.0', stateJSON)
+  }, [coffeeState])
 
   const { coffeeCartList } = coffeeState
 
