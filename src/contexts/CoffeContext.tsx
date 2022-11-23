@@ -1,4 +1,11 @@
-import { createContext, ReactNode, useState } from 'react'
+import { createContext, ReactNode, useReducer, useState } from 'react'
+import {
+  addNewCoffeeInCartAction,
+  removeItemFromCartAction,
+  resetCartListAction,
+  updateQtdItemInCartAction,
+} from '../reduces/coffees/actions'
+import { coffeeInCartReducer } from '../reduces/coffees/reducer'
 
 // Coffee
 export interface CoffeeProps {
@@ -157,63 +164,41 @@ export function CoffeContextProvider({ children }: CoffeContextProviderProps) {
     ],
   )
 
-  const [coffeeCartList, setCoffeeCartList] = useState<CoffeeInCartProps[]>([])
+  const [coffeeState, dispatch] = useReducer(
+    coffeeInCartReducer,
+    {
+      coffeeCartList: [],
+    },
+    () => {
+      return { coffeeCartList: [] }
+    },
+  )
+
+  const { coffeeCartList } = coffeeState
 
   const totalItemsInCart = coffeeCartList.length
 
   function AddCoffeeInTheCart(id: string, quantity: number) {
-    const findIfExistsInCart = coffeeCartList.find((coffee) => coffee.id === id)
+    const findCoffeeToBeAdded = availableCoffeeList.find(
+      (coffee) => coffee.id === id,
+    )
 
-    if (findIfExistsInCart) {
-      setCoffeeCartList((state) => {
-        return state.map((coffee) => {
-          if (coffee.id === id) {
-            coffee.quantity += quantity
-          }
-          return coffee
-        })
-      })
-    } else {
-      const findCoffeeToBeAdded = availableCoffeeList.find(
-        (coffee) => coffee.id === id,
-      )
-
-      if (!findCoffeeToBeAdded) {
-        return false
-      }
-
+    if (findCoffeeToBeAdded) {
       const coffeeToBeAdded = { ...findCoffeeToBeAdded, quantity }
-      setCoffeeCartList((state) => [...state, coffeeToBeAdded])
+      dispatch(addNewCoffeeInCartAction(coffeeToBeAdded))
     }
   }
 
   function UpdateQtdItemInCart(id: string, quantity: number) {
-    const findCoffeeToBeUpdated = coffeeCartList.find(
-      (coffee) => coffee.id === id,
-    )
-
-    if (!findCoffeeToBeUpdated) {
-      return false
-    }
-
-    setCoffeeCartList((state) => {
-      return state.map((coffee) => {
-        if (coffee.id === id) {
-          coffee.quantity = quantity
-        }
-        return coffee
-      })
-    })
+    dispatch(updateQtdItemInCartAction(id, quantity))
   }
 
   function RemoveItemFromCart(id: string) {
-    setCoffeeCartList((state) => {
-      return state.filter((coffee) => coffee.id !== id)
-    })
+    dispatch(removeItemFromCartAction(id))
   }
 
   function resetCartList() {
-    setCoffeeCartList([])
+    dispatch(resetCartListAction())
   }
 
   return (
